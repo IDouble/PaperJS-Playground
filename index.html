@@ -10,20 +10,22 @@
 
         var values = {
             count: 90,
-            points: 128
+            points: 45
         };
 
         var colorArray = [];
 
+        // Generates a random hex color
 		function getRandomColor() {
 			return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
 		}
 
+		// Fills the colorArray with random hex colors
 		for (var i = 0; i < values.count; i++) {
 			colorArray.push(getRandomColor());
 		}
 
-
+		// Creation of the Shapes
         for (var i = 0; i < values.count; i++) {
             var path = new Path({
                 fillColor: colorArray[i % colorArray.length],
