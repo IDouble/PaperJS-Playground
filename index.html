@@ -26,7 +26,7 @@
 
         for (var i = 0; i < values.count; i++) {
             var path = new Path({
-                fillColor: i % 2 ? 'green' : 'black',
+                fillColor: colorArray[i % colorArray.length],
                 closed: true
             });
 
