@@ -19,6 +19,10 @@
 		function getRandomColor() {
 			return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
 		}
+			var colorTable = [];
+			for (var i = 0; i < values.count; i++) {
+				colorTable.push("rgb(0, 0, " + (255 - i * 1) + ")");
+        	}
 
 		// Fills the colorArray with random hex colors
 		for (var i = 0; i < values.count; i++) {
@@ -28,12 +32,12 @@
 		// Creation of the Shapes
         for (var i = 0; i < values.count; i++) {
             var path = new Path({
-                fillColor: colorArray[i % colorArray.length],
-                strokeColor: 'black',
+                fillColor: colorTable[i],
+                strokeColor: 'cyan',
                 closed: true
             });
 
-            var offset = new Point(20 + 10 * i, 0);
+            var offset = new Point(2 * i, 0);
             var l = offset.length;
             for (var j = 0; j < values.points * 2; j++) {
                 offset.angle += 360 / values.points;
