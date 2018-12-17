@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Paper.js - Playground</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+	<meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="examples/css/style.css">
     <script type="text/javascript" src="dist/paper-full.js"></script>
     <script type="text/paperscript" canvas="canvas">
@@ -19,10 +23,11 @@
 		function getRandomColor() {
 			return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
 		}
-			var colorTable = [];
-			for (var i = 0; i < values.count; i++) {
-				colorTable.push("rgb(0, 0, " + (255 - i * 1) + ")");
-        	}
+
+		var colorTable = [];
+		for (var i = 0; i < values.count; i++) {
+			colorTable.push("rgb(0, " + (255 - i * 6) + ", " + (255 - i * 2) + ")");
+    	}
 
 		// Fills the colorArray with random hex colors
 		for (var i = 0; i < values.count; i++) {
@@ -33,11 +38,11 @@
         for (var i = 0; i < values.count; i++) {
             var path = new Path({
                 fillColor: colorTable[i],
-                strokeColor: 'cyan',
+                strokeColor: 'black',
                 closed: true
             });
 
-            var offset = new Point(2 * i, 0);
+            var offset = new Point(10 * i, 0);
             var l = offset.length;
             for (var j = 0; j < values.points * 2; j++) {
                 offset.angle += 360 / values.points;
